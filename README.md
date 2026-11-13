@@ -1,7 +1,18 @@
 # UI Test Automation (Python + Playwright)
 
+[![UI tests](https://github.com/piyush3589/playwright-tests/actions/workflows/ci.yml/badge.svg)](https://github.com/piyush3589/playwright-tests/actions/workflows/ci.yml)
+
 End-to-end UI tests for the demo shop [saucedemo.com](https://www.saucedemo.com), built with
 **Playwright (Python) + Pytest** and the **Page Object Model**.
+
+## Tech stack
+
+| | |
+|---|---|
+| Language | Python 3 (CI runs 3.12) |
+| Test framework | Pytest, Playwright (Python), pytest-html |
+| Pattern | Page Object Model, fixtures, parametrized tests |
+| CI | GitHub Actions: runs on every push, uploads the HTML report and failure traces |
 
 ## What is covered (24 tests)
 
@@ -23,6 +34,9 @@ conftest.py   # fixtures: base_url, logged-in `inventory` fixture, page objects,
 ```
 
 ## Run it
+
+**Prerequisites:** Python 3 and pip. The `playwright install chromium` step downloads the browser used by the tests.
+
 
 ```bash
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
@@ -49,8 +63,12 @@ On failure a screenshot and a Playwright trace are saved to `test-results/`
   (wrong tax rate, broken sort, locked user allowed): the tests fail on each, so they are actually testing something.
 - Known limit: the mock mimics the flows above only, so run `pytest` (live) before trusting a result about the real site.
 
-## Possible next steps
+## Roadmap
 
 - Visual checks with `expect(page).to_have_screenshot()`
-- Allure reports
 - Tests for `problem_user` and `performance_glitch_user` (known-buggy demo users) to log real defects
+- Allure reports
+
+## Author
+
+Piyush Raut | [GitHub](https://github.com/piyush3589) | [LinkedIn](https://linkedin.com/in/piyushr30) | piyush318@gmail.com
